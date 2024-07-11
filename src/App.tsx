@@ -57,7 +57,7 @@ function App() {
       if (scores().at(activePlayer()) >= 100) {
         setPlaying(false);
       } else {
-        switchPlayer(true);
+        switchPlayer();
       }
     }
   }
@@ -69,7 +69,7 @@ function App() {
 
       <img
         style={{ display: showImage() ? 'block' : 'none' }}
-        src={`/src/assets/dice-${diceImg()}.png`}
+        src={`/images/dice-${diceImg()}.png`}
         alt='Playing dice'
         class='dice'
       />
