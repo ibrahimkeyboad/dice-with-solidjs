@@ -62,18 +62,29 @@ function App() {
     }
   }
 
+  function handleNewGame() {
+    setScores([0, 0]);
+    setCurrentScore(0);
+    setActivePlayer(0);
+    setShowImage(false);
+    setDiceImg(0);
+    setPlaying(true);
+  }
+
   return (
     <main>
       <PlayerOne />
       <PlayerTwo />
 
       <img
-        style={{ display: showImage() ? 'block' : 'none' }}
+        style={{ display: playing() && showImage() ? 'block' : 'none' }}
         src={`/images/dice-${diceImg()}.png`}
         alt='Playing dice'
         class='dice'
       />
-      <button class='btn btn--new'>🔄 New game</button>
+      <button onClick={handleNewGame} class='btn btn--new'>
+        🔄 New game
+      </button>
       <button onClick={handleRollDice} class='btn btn--roll'>
         🎲 Roll dice
       </button>
